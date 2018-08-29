@@ -12,6 +12,14 @@ class TweetCompose {
     APIUtil.createTweet(data).then(tweet => this.handleSuccess(tweet));
   }
 
+  function clearInput() {
+
+  }
+
+  function handleSuccess() {
+    // call clear input
+  }
+
 }
 
 module.exports = TweetCompose;
