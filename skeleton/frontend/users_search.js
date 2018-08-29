@@ -1,8 +1,4 @@
-const UsersSearch = requires('./users_search');
 
-$( document ).ready(function () {
-  $('nav.users-search').each( (idx, el) => new UsersSearch(el, {}) );
-});
 
 
 function UsersSearch (el, args) {
@@ -10,3 +6,18 @@ function UsersSearch (el, args) {
   this.$input = this.$el.find('input[name=username]');
   this.$ul = this.$el.find('.users');
 }
+
+handleInput(event) {
+   if (this.$input.val() === '') {
+     this.renderResults([]);
+     return;
+   }
+   APIUtil.searchUsers(this.$input.val())
+     .then(users => this.renderResults(users));
+ }
+
+ function renderResults() {
+   // empty ul.users
+   // build li w JQ w a tag to user
+   // append to ul
+ }
